@@ -1,0 +1,16 @@
+services:
+  web:
+    image: httpd
+    container_name: apache
+    ports:
+      - "8080:80"
+  db:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Lg155Zikishin
+      MYSQL_DATABASE: testdb
+      MYSEL_USER: so-take
+      MYSQL_PASSWORD: Lg155Tenkyu
+#    volumes:
+#      - db-data: /var/lib/mysql
