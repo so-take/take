@@ -1,9 +1,14 @@
 services:
   web:
-    image: httpd
-    container_name: apache
+    build: .
+    container_name: php
     ports:
       - "8080:80"
+    volumes:
+      - ./src/html:/var/www/html
+      - ./config:/usr/local/etc/php
+    depends_on:
+     - db
   db:
     image: mysql:8.0
     container_name: mysql
@@ -12,5 +17,9 @@ services:
       MYSQL_DATABASE: testdb
       MYSQL_USER: so-take
       MYSQL_PASSWORD: Lg155Tenkyu
-#    volumes:
-#      - db-data: /var/lib/mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+volumes:
+  db-data:
