@@ -9,6 +9,17 @@ services:
       - ./config:/usr/local/etc/php
     depends_on:
      - db
+  phpmyadmin:
+    image: phpmyadmin:5.2
+    container_name: phpmyadmin
+    environment:
+      PMA_JOST: db
+      PMA_USER: so-take
+      PMA_PASSWORD: Lg155Tenkyu
+    depends_on:
+      - db
+    ports:
+      - "8081:80"
   db:
     image: mysql:8.0
     container_name: mysql
