@@ -17,8 +17,8 @@ services:
       MYSQL_DATABASE: testdb
       MYSQL_USER: so-take
       MYSQL_PASSWORD: Lg155Tenkyu
-    ports:
-      - "3306:3306"
+#    ports:
+#      - "3306:3306"
     volumes:
       - db-data:/var/lib/mysql
 volumes:
